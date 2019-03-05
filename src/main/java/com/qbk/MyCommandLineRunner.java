@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 @Order(value=1)
 public class MyCommandLineRunner implements CommandLineRunner {
 
+    /**
+     * 注入 SocketIO Server
+     */
     private final SocketIOServer server;
 
     @Autowired
@@ -24,6 +27,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        //开启服务
         server.start();
         System.out.println("socket.io启动成功！");
     }

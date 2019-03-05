@@ -16,6 +16,10 @@ public class SocketioApplication {
 		SpringApplication.run(SocketioApplication.class, args);
 	}
 
+	/**
+	 * 配置 SocketIO Server
+	 * @return
+	 */
 	@Bean
 	public SocketIOServer socketIOServer() {
 		com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
@@ -47,6 +51,11 @@ public class SocketioApplication {
 		return server;
 	}
 
+	/**
+	 * 注解扫描
+	 * @param socketServer
+	 * @return
+	 */
 	@Bean
 	public SpringAnnotationScanner springAnnotationScanner(SocketIOServer socketServer) {
 		return new SpringAnnotationScanner(socketServer);
